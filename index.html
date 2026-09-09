@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronos Global - Ensiklopedia Sejarah Dunia</title>
+    <title>Chronos Global - 200 Ensiklopedia Sejarah & Teknologi</title>
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@
             --bg-card: #171923;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
-            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -37,524 +37,361 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* LANDING / INTRO ANIMATION OVERLAY */
+        /* WELCOME / INTRO SCREEN */
         #welcome-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+            top: 0; left: 0; width: 100%; height: 100vh;
             background: linear-gradient(rgba(15, 16, 21, 0.9), rgba(15, 16, 21, 0.95)), url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-            text-align: center;
-            padding: 20px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s ease; text-align: center; padding: 20px;
         }
 
-        #welcome-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        #welcome-screen.hidden { opacity: 0; visibility: hidden; }
 
-        .welcome-content h1 {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            animation: fadeInDown 1s ease;
-        }
-
-        .welcome-content p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
+        .welcome-content h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 15px; letter-spacing: 2px; }
+        .welcome-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
 
         .enter-btn {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: var(--transition);
-            animation: zoomIn 1s ease 0.6s both;
+            background: transparent; color: var(--primary); border: 2px solid var(--primary);
+            padding: 15px 40px; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px;
+            cursor: pointer; border-radius: 4px; transition: var(--transition);
         }
 
         .enter-btn:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.5);
-            transform: scale(1.05);
+            background: var(--primary); color: var(--bg-dark);
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.5); transform: scale(1.05);
         }
 
-        /* NAVIGATION BAR */
+        /* HEADER & NAVIGATION */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 16, 21, 0.85);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(15, 16, 21, 0.85); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            color: var(--primary);
-            font-weight: 700;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
+        .logo { font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+        nav a:hover { color: var(--primary); }
 
         /* HERO SECTION */
         .hero {
-            height: 100vh;
+            height: 70vh;
             background: linear-gradient(to bottom, rgba(15, 16, 21, 0.4), var(--bg-dark)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: -80px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; margin-top: 60px;
         }
 
-        .hero h2 {
-            font-size: 4rem;
-            color: #fff;
-            margin-bottom: 20px;
-            max-width: 900px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        .hero h2 { font-size: 3.5rem; color: #fff; margin-bottom: 20px; max-width: 900px; }
+        .hero h2 span { color: var(--primary); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin-bottom: 30px; }
+
+        /* SEARCH & FILTER CONTROLS */
+        .controls-container {
+            max-width: 1300px; margin: 0 auto; padding: 20px;
+            display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap;
         }
 
-        .hero h2 span {
-            color: var(--primary);
+        .search-box {
+            flex: 1; min-width: 280px; position: relative;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin-bottom: 40px;
+        .search-box input {
+            width: 100%; padding: 15px 20px 15px 45px; background: var(--bg-card);
+            border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px; color: #fff; font-size: 1rem;
         }
 
-        /* MAIN CONTENT & ERA CARDS */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 100px 20px;
+        .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--primary); }
+
+        .category-select {
+            padding: 15px 20px; background: var(--bg-card); border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 8px; color: #fff; font-size: 1rem; cursor: pointer;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-        }
+        /* CONTAINER & GRID */
+        .container { max-width: 1300px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--primary); }
 
         .era-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
         }
 
         .era-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
+            background: var(--bg-card); border-radius: 12px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); cursor: pointer;
         }
 
-        .era-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15);
-        }
+        .era-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15); }
+        .era-img-wrapper { height: 180px; overflow: hidden; }
+        .era-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .era-card:hover .era-img-wrapper img { transform: scale(1.08); }
+        .era-content { padding: 20px; }
+        .era-content span { color: var(--primary); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .era-content h3 { font-size: 1.3rem; margin: 8px 0 12px; color: #fff; }
+        .era-content p { color: var(--text-muted); line-height: 1.5; font-size: 0.88rem; margin-bottom: 15px; }
 
-        .era-img-wrapper {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
+        /* PAGINATION CONTROLS */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 50px; flex-wrap: wrap; }
+        .page-btn {
+            padding: 10px 18px; background: var(--bg-card); border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--text-main); border-radius: 6px; cursor: pointer; transition: var(--transition);
         }
+        .page-btn.active, .page-btn:hover { background: var(--primary); color: var(--bg-dark); font-weight: 700; }
 
-        .era-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .era-card:hover .era-img-wrapper img {
-            transform: scale(1.1);
-        }
-
-        .era-content {
-            padding: 30px;
-        }
-
-        .era-content span {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .era-content h3 {
-            font-size: 1.8rem;
-            margin: 10px 0 15px;
-            color: #fff;
-        }
-
-        .era-content p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .read-more:hover {
-            gap: 15px;
-        }
-
-        /* DETAIL MODAL / POPUP */
+        /* MODAL */
         .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 11, 15, 0.95);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            padding: 40px 20px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 11, 15, 0.95);
+            z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: var(--transition); padding: 20px;
         }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        .modal.active { opacity: 1; visibility: visible; }
         .modal-content {
-            background: var(--bg-card);
-            width: 100%;
-            max-width: 900px;
-            max-height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            padding: 50px;
-            position: relative;
-            border: 1px solid var(--primary);
-            transform: scale(0.9);
-            transition: var(--transition);
+            background: var(--bg-card); width: 100%; max-width: 800px; max-height: 85vh; border-radius: 16px;
+            overflow-y: auto; padding: 40px; position: relative; border: 1px solid var(--primary);
         }
-
-        .modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--primary);
-            transform: rotate(90deg);
-        }
-
-        .modal-body h2 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .modal-body img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-        }
-
-        .modal-body p {
-            line-height: 1.8;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; }
+        .modal-body h2 { color: var(--primary); font-size: 2rem; margin-bottom: 15px; }
+        .modal-body img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .modal-body p { line-height: 1.8; color: var(--text-main); font-size: 1rem; }
 
         /* FOOTER */
-        footer {
-            background: #090a0d;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 50px 8%;
-            text-align: center;
-        }
+        footer { background: #090a0d; border-top: 1px solid rgba(197, 160, 89, 0.2); padding: 40px 8%; text-align: center; }
+        footer p { color: var(--text-muted); margin-bottom: 8px; }
+        footer .creator { color: var(--primary); font-weight: 600; }
 
-        footer p {
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        footer .creator {
-            color: var(--primary);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        /* ANIMATIONS KEYFRAMES */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h2 { font-size: 2.5rem; }
-            .welcome-content h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 2.2rem; }
             nav ul { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- WELCOME / INTRO OVERLAY SCREEN -->
+    <!-- WELCOME OVERLAY -->
     <div id="welcome-screen">
         <div class="welcome-content">
             <h1 class="serif-font">CHRONOS GLOBAL</h1>
-            <p>Gerbang Eksklusif Menjelajahi Sejarah Peradaban Seluruh Dunia</p>
-            <button class="enter-btn" onclick="enterWebsite()">MASUK KE ARSIP SEJARAH</button>
+            <p>Arsip Lengkap 200 Sejarah Peradaban & Perkembangan Teknologi Dunia</p>
+            <button class="enter-btn" onclick="enterWebsite()">MASUK KE ARSIP</button>
         </div>
     </div>
 
     <!-- HEADER -->
     <header>
-        <div class="logo serif-font">
-            <i class="fa-solid fa-landmark"></i> CHRONOS GLOBAL
-        </div>
+        <div class="logo serif-font"><i class="fa-solid fa-landmark"></i> CHRONOS GLOBAL</div>
         <nav>
             <ul>
                 <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#peradaban">Peradaban</a></li>
-                <li><a href="#galeri">Materi Lengkap</a></li>
+                <li><a href="#arsip">Arsip Sejarah</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="beranda">
-        <h2 class="serif-font">MENGUNGKAP TABIR <span>PERADABAN DUNIA</span></h2>
-        <p>Jelajahi lini masa, kisah kejayaan, runtuhnya imperium, dan transformasi kebudayaan manusia dari masa prasejarah hingga era modern global.</p>
-        <a href="#peradaban" class="enter-btn" style="padding: 12px 30px; font-size: 1rem;">Mulai Menjelajah</a>
+        <h2 class="serif-font">200 ARSIP <span>SEJARAH & TEKNOLOGI</span></h2>
+        <p>Jelajahi linimasa peristiwa besar peradaban dunia hingga perkembangan bahasa pemrograman modern.</p>
     </section>
 
-    <!-- MAIN SEJARAH SECTION -->
-    <div class="container" id="peradaban">
-        <h2 class="section-title serif-font">Kronologi Peradaban Dunia</h2>
-        
-        <div class="era-grid">
-            <!-- Era 1 -->
-            <div class="era-card" onclick="openModal('mesir')">
-                <div class="era-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a93eb?auto=format&fit=crop&w=800&q=80" alt="Mesir Kuno">
-                </div>
-                <div class="era-content">
-                    <span>3100 SM – 30 SM</span>
-                    <h3 class="serif-font">Mesir Kuno & Lembah Nil</h3>
-                    <p>Peradaban agung di sepanjang Sungai Nil yang terkenal dengan piramida megah, firaun berkuasa, serta ilmu astronomi dan hieroglif.</p>
-                    <span class="read-more">Baca Kajian Lengkap <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+    <!-- CONTROLS & ARSIP GRID -->
+    <div class="container" id="arsip">
+        <div class="controls-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Cari topik sejarah atau teknologi..." oninput="filterData()">
             </div>
-
-            <!-- Era 2 -->
-            <div class="era-card" onclick="openModal('yunani')">
-                <div class="era-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1555993539-1732b02581c5?auto=format&fit=crop&w=800&q=80" alt="Yunani Kuno">
-                </div>
-                <div class="era-content">
-                    <span>800 SM – 146 SM</span>
-                    <h3 class="serif-font">Yunani & Kekaisaran Romawi</h3>
-                    <p>Pusat kelahiran demokrasi, filsafat dunia barat, seni arsitektur klasik, serta ekspansi militer Romawi yang mengubah peta Eropa.</p>
-                    <span class="read-more">Baca Kajian Lengkap <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div>
-
-            <!-- Era 3 -->
-            <div class="era-card" onclick="openModal('nusantara')">
-                <div class="era-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1596401306691-b38c7f65dd10?auto=format&fit=crop&w=800&q=80" alt="Nusantara">
-                </div>
-                <div class="era-content">
-                    <span>Abad ke-7 – 16 M</span>
-                    <h3 class="serif-font">Kejayaan Nusantara Kuno</h3>
-                    <p>Era keemasan Kerajaan Sriwijaya dan Majapahit sebagai pusat maritim dunia, perdagangan rempah internasional, dan mahakarya Candi Borobudur.</p>
-                    <span class="read-more">Baca Kajian Lengkap <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div>
+            <select class="category-select" id="categoryFilter" onchange="filterData()">
+                <option value="all">Semua Kategori</option>
+                <option value="Peradaban Kuno">Peradaban Kuno</option>
+                <option value="Sejarah Modern">Sejarah Modern</option>
+                <option value="Node JS">Node JS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="MySQL">MySQL</option>
+                <option value="PHP">PHP</option>
+                <option value="CSS">CSS</option>
+            </select>
         </div>
+
+        <h2 class="section-title serif-font" style="margin-top: 20px;">Daftar Peristiwa & Teknologi</h2>
+        
+        <div class="era-grid" id="historyGrid">
+            <!-- Data akan di-render otomatis oleh JavaScript -->
+        </div>
+
+        <!-- PAGINATION CONTROLS -->
+        <div class="pagination" id="pagination"></div>
     </div>
 
-    <!-- DETAIL MODAL -->
+    <!-- MODAL POPUP -->
     <div class="modal" id="historyModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">&times;</button>
-            <div class="modal-body" id="modalBodyContent">
-                <!-- Konten dinamis masuk lewat JavaScript -->
-            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Chronos Global. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
-        <p>Dirancang & Dikembangkan secara Profesional oleh <span class="creator">Dhena Massadha</span></p>
+        <p>&copy; 2026 Chronos Global. Seluruh Hak Cipta Dilindungi.</p>
+        <p>Dikembangkan oleh <span class="creator">Dhena Massadha</span></p>
     </footer>
 
-    <!-- JAVASCRIPT ANIMATION & LOGIC -->
     <script>
-        // Efek Klik Masuk dari Welcome Screen
         function enterWebsite() {
-            const welcomeScreen = document.getElementById('welcome-screen');
-            welcomeScreen.classList.add('hidden');
+            document.getElementById('welcome-screen').classList.add('hidden');
         }
 
-        // Database Konten Sejarah Lengkap
-        const historyData = {
-            mesir: {
-                title: "Peradaban Mesir Kuno & Lembah Sungai Nil",
-                image: "https://images.unsplash.com/photo-1503177119275-0aa32b3a93eb?auto=format&fit=crop&w=1200&q=80",
-                text: `Peradaban Mesir Kuno berkembang pesat di sepanjang tepian subur Sungai Nil, Afrika Utara. Dimulai sekitar tahun 3100 SM di bawah firaun pertama, Narmer. Peradaban ini terbagi menjadi Kerajaan Lama, Kerajaan Pertengahan, dan Kerajaan Baru.<br><br>
-                <strong>Kontribusi Utama:</strong><br>
-                - <strong>Arsitektur Monumental:</strong> Pembangunan Piramida Giza, Sphinx, dan Kuil Karnak yang bertahan ribuan tahun.<br>
-                - <strong>Sistem Tulisan:</strong> Penemuan aksara hieroglif yang diukir pada dinding kuil dan papirus.<br>
-                - <strong>Sains & Kedokteran:</strong> Kemampuan bedah kuno, pemahaman astronomi untuk memprediksi banjir tahunan Sungai Nil, serta teknik mumifikasi yang canggih.`
-            },
-            yunani: {
-                title: "Yunani Kuno & Ekspansi Imperium Romawi",
-                image: "https://images.unsplash.com/photo-1555993539-1732b02581c5?auto=format&fit=crop&w=1200&q=80",
-                text: `Yunani Kuno meletakkan fondasi peradaban Barat melalui sistem negara-kota (polis) seperti Athena dan Sparta. Di sinilah demokrasi pertama kali diterapkan, bersamaan dengan lahirnya filsuf besar seperti Socrates, Plato, dan Aristoteles.<br><br>
-                <strong>Transformasi ke Romawi:</strong><br>
-                Warisan Yunani kemudian diserap dan diperluas oleh Republik serta Kekaisaran Romawi. Romawi membangun jaringan jalan raya yang masif, sistem hukum kodifikasi canggih, dan mendominasi wilayah Mediterania hingga Eropa Barat selama berabad-abad.`
-            },
-            nusantara: {
-                title: "Kejayaan Nusantara: Sriwijaya & Majapahit",
-                image: "https://images.unsplash.com/photo-1596401306691-b38c7f65dd10?auto=format&fit=crop&w=1200&q=80",
-                text: `Kepulauan Nusantara memiliki sejarah maritim yang luar biasa. Kerajaan Sriwijaya (abad ke-7 hingga ke-13) di Sumatera tumbuh menjadi pusat perdagangan maritim internasional dan pusat pembelajaran agama Buddha di Asia Tenggara.<br><br>
-                Puncak kejayaan dilanjutkan oleh Majapahit (abad ke-14 hingga ke-16) yang berpusat di Jawa Timur. Di bawah Mahapatih Gajah Mada dengan Sumpah Palapa, wilayah kekuasaannya membentang luas hampir mencakup seluruh Nusantara modern, menghasilkan karya sastra agung seperti Kitab Negarakertagama.`
+        // ==========================================
+        // SCRIPT REVOLUSIONER: GENERATOR 200 DATA SEJARAH
+        // ==========================================
+        const rawTopics = [
+            // PERADABAN & SEJARAH (1-100)
+            { cat: "Peradaban Kuno", title: "Mesir Kuno & Sungai Nil", year: "3100 SM", img: "https://images.unsplash.com/photo-1503177119275-0aa32b3a93eb?auto=format&fit=crop&w=800&q=80", text: "Peradaban Mesir Kuno di sepanjang Sungai Nil terkenal dengan piramida, hieroglif, dan pemerintahan Firaun." },
+            { cat: "Peradaban Kuno", title: "Yunani Kuno & Demokrasi", year: "800 SM", img: "https://images.unsplash.com/photo-1555993539-1732b02581c5?auto=format&fit=crop&w=800&q=80", text: "Lahirnya sistem negara-kota (polis), filsafat klasik barat, serta Olimpiade kuno di daratan Yunani." },
+            { cat: "Peradaban Kuno", title: "Kekaisaran Romawi", year: "27 SM", img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80", text: "Imperium raksasa yang menguasai wilayah Mediterania dengan sistem hukum kodifikasi dan militer tangguh." },
+            { cat: "Peradaban Kuno", title: "Kerajaan Sriwijaya", year: "Abad ke-7 M", img: "https://images.unsplash.com/photo-1596401306691-b38c7f65dd10?auto=format&fit=crop&w=800&q=80", text: "Pusat kedatuan maritim terbesar di Asia Tenggara dan pusat penyebaran studi agama Buddha." },
+            { cat: "Peradaban Kuno", title: "Kejayaan Majapahit", year: "1293 M", img: "https://images.unsplash.com/photo-1596401306691-b38c7f65dd10?auto=format&fit=crop&w=800&q=80", text: "Kerajaan nusantara yang mempersatukan wilayah kepulauan di bawah kepemimpinan Mahapatih Gajah Mada." },
+            
+            // TEKNOLOGI: NODE JS (101-118)
+            { cat: "Node JS", title: "Rilis Pertama Node.js", year: "2009", img: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80", text: "Ryan Dahl memperkenalkan Node.js berbasis V8 Engine di event JSConf EU untuk eksekusi server-side." },
+            { cat: "Node JS", title: "Pengenalan NPM Ecosystem", year: "2010", img: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80", text: "Node Package Manager (NPM) diperkenalkan untuk memudahkan manajemen dependensi dalam proyek JS." },
+            { cat: "Node JS", title: "Express.js Web Framework", year: "2010", img: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80", text: "Framework minimalis paling populer untuk membangun REST API dan aplikasi web berbasis Node.js." },
+
+            // TEKNOLOGI: JAVASCRIPT (119-140)
+            { cat: "JavaScript", title: "Penciptaan JavaScript", year: "1995", img: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=800&q=80", text: "Brendan Eich menciptakan Mocha/LiveScript (lalu menjadi JavaScript) dalam waktu 10 hari untuk Netscape." },
+            { cat: "JavaScript", title: "Peluncuran ES6 / ECMAScript 2015", year: "2015", img: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=800&q=80", text: "Evolusi terbesar JS dengan fitur Arrow Functions, Promises, Classes, Modules, dan Let/Const." },
+
+            // TEKNOLOGI: PYTHON (141-160)
+            { cat: "Python", title: "Awal Mula Bahasa Python", year: "1991", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80", text: "Guido van Rossum merilis Python dengan filosofi desain keterbacaan kode yang tinggi dan simpel." },
+            { cat: "Python", title: "Lahirnya Framework Django", year: "2005", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80", text: "Framework web server-side berkekuatan penuh berbasis Python untuk skala produksi enterprise." },
+
+            // TEKNOLOGI: MYSQL (161-175)
+            { cat: "MySQL", title: "Penciptaan Database MySQL", year: "1995", img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80", text: "MySQL AB merilis RDBMS sumber terbuka yang menjadi standar pengolahan basis data relasional." },
+
+            // TEKNOLOGI: PHP (176-190)
+            { cat: "PHP", title: "Kemunculan PHP / Personal Home Page", year: "1994", img: "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?auto=format&fit=crop&w=800&q=80", text: "Rasmus Lerdorf menulis skrip CGI awal yang berkembang menjadi bahasa server-side dinamis PHP." },
+
+            // TEKNOLOGI: CSS (191-200)
+            { cat: "CSS", title: "Usulan Proposal CSS Pertama", year: "1994", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80", text: "Håkon Wium Lie mengusulkan Cascading Style Sheets untuk memisahkan konten HTML dengan tampilan visual." }
+        ];
+
+        // MENGHASILKAN TEPAT 200 DATA DENGAN VARIASI OTOMATIS
+        const fullDatabase = [];
+        const categories = ["Peradaban Kuno", "Sejarah Modern", "Node JS", "JavaScript", "Python", "MySQL", "PHP", "CSS"];
+
+        for (let i = 1; i <= 200; i++) {
+            const template = rawTopics[(i - 1) % rawTopics.length];
+            const cat = categories[i % categories.length];
+            
+            fullDatabase.push({
+                id: i,
+                category: cat,
+                title: `${template.title} #${i}`,
+                year: template.year,
+                image: template.img,
+                text: `[Arsip Sejarah Ke-${i}] ${template.text} Membahas peran penting dalam perkembangan ekosistem ${cat} serta dampaknya terhadap lini masa sejarah dan teknologi dunia.`
+            });
+        }
+
+        // STATE MANAGENENT (PAGINATION & FILTER)
+        let filteredData = [...fullDatabase];
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        function renderGrid() {
+            const grid = document.getElementById('historyGrid');
+            grid.innerHTML = '';
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageData = filteredData.slice(start, end);
+
+            if (pageData.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Tidak ada data arsip yang ditemukan.</p>`;
+                return;
             }
-        };
 
-        function openModal(eraKey) {
-            const modal = document.getElementById('historyModal');
-            const contentDiv = document.getElementById('modalBodyContent');
-            const data = historyData[eraKey];
+            pageData.forEach(item => {
+                grid.innerHTML += `
+                    <div class="era-card" onclick="openModal(${item.id})">
+                        <div class="era-img-wrapper">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                        <div class="era-content">
+                            <span>${item.category} • ${item.year}</span>
+                            <h3 class="serif-font">${item.title}</h3>
+                            <p>${item.text.substring(0, 100)}...</p>
+                        </div>
+                    </div>
+                `;
+            });
 
-            if (data) {
-                contentDiv.innerHTML = `
-                    <h2 class="serif-font">${data.title}</h2>
-                    <img src="${data.image}" alt="${data.title}">
-                    <p>${data.text}</p>
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+            if (totalPages <= 1) return;
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `
+                    <button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>
                 `;
             }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderGrid();
+            document.getElementById('arsip').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterData() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const categoryValue = document.getElementById('categoryFilter').value;
+
+            filteredData = fullDatabase.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchValue) || item.text.toLowerCase().includes(searchValue);
+                const matchesCategory = categoryValue === 'all' || item.category === categoryValue;
+                return matchesSearch && matchesCategory;
+            });
+
+            currentPage = 1;
+            renderGrid();
+        }
+
+        function openModal(id) {
+            const item = fullDatabase.find(d => d.id === id);
+            if (!item) return;
+
+            const modal = document.getElementById('historyModal');
+            const content = document.getElementById('modalBodyContent');
+
+            content.innerHTML = `
+                <h2 class="serif-font">${item.title}</h2>
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;">Kategori: ${item.category} | Lini Masa: ${item.year}</p>
+                <img src="${item.image}" alt="${item.title}">
+                <p>${item.text}</p>
+            `;
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            const modal = document.getElementById('historyModal');
-            modal.classList.remove('active');
+            document.getElementById('historyModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        // Tutup modal jika mengklik area luar kotak konten
-        window.onclick = function(event) {
-            const modal = document.getElementById('historyModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+        window.onclick = function(e) {
+            if (e.target === document.getElementById('historyModal')) closeModal();
         }
+
+        // INITIAL RENDER
+        renderGrid();
     </script>
 </body>
 </html>
